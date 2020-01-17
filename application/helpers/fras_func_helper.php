@@ -1,11 +1,7 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
-class Common_lib
+class FRASFUNC
 {
-    public function __construct()
-    {
-        $this->CI = &get_instance();
-    }
     public function null_blank_replace($str)
     {
         if ($str != NULL && $str != "-") $output = $str;
@@ -143,7 +139,7 @@ class Common_lib
         $json = preg_replace('/(,)\s*}$/', '}', $json);
         return json_decode($json, $assoc);
     }
-    function getHapusData($dbdelete)
+    function getDeleteData($dbdelete)
     {
         $dbdeleteKEY = array_keys($dbdelete);
         $hasil = '';
@@ -154,7 +150,7 @@ class Common_lib
 
         return substr($hasil, 0, -2);
     }
-    function getTambahData($dbinsert)
+    function getInsertData($dbinsert)
     {
         $dbinsertKEY = array_keys($dbinsert);
         $hasil = '';
@@ -164,7 +160,7 @@ class Common_lib
         }
         return substr($hasil, 0, -2);
     }
-    function getUbahData($dbawal, $dbakhir)
+    function getUpdateData($dbawal, $dbakhir)
     {
         $dbakhirKEY = array_keys($dbakhir);
         $hasil = '';

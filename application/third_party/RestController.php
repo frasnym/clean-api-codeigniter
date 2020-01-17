@@ -3,7 +3,7 @@
 namespace chriskacerguis\RestServer;
 use CI_Controller;
 
-require APPPATH . 'libraries/Format.php';
+require APPPATH . 'third_party/Format.php';
 
 use Exception;
 use stdClass;
