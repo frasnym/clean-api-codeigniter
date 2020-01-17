@@ -11,17 +11,18 @@ class RestHelper
     {
         $this->CI = &get_instance();
     }
-    function getResponseApi($error_number, $lang, $user, $sys_date, $key, $val)
+    function getResponseApi($resp_msg_code, $resp_status, $lang, $user, $sys_date, $key, $val)
     {
         # Array Key
         $arrKey = [];
-        array_push($arrKey, 'errNumber');
-        array_push($arrKey, 'userApp');
+        array_push($arrKey, 'code');
+        array_push($arrKey, 'status');
+        array_push($arrKey, 'user_app');
         foreach ($key as $key) {
             array_push($arrKey, $key);
         }
-        array_push($arrKey, 'respTime');
-        array_push($arrKey, 'respMessage');
+        array_push($arrKey, 'sys_date');
+        array_push($arrKey, 'message');
 
         # Convert Mobile Phone
         if ($user[0] == '0' || $user[1] == '8') {
@@ -31,13 +32,14 @@ class RestHelper
 
         # Array Value
         $arrVal = [];
-        array_push($arrVal, $error_number);
+        array_push($arrVal, $resp_msg_code);
+        array_push($arrVal, $resp_status);
         array_push($arrVal, $user);
         foreach ($val as $val) {
             array_push($arrVal, $val);
         }
         array_push($arrVal, $sys_date);
-        array_push($arrVal, $this->notification_msg[$error_number]);
+        array_push($arrVal, $this->notification_msg[$resp_msg_code]);
 
         $message = array_combine($arrKey, $arrVal);
 

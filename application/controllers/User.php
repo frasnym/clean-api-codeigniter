@@ -52,19 +52,19 @@ class User extends RestController
 
 		# Variable Validation
 		if ($check_input_param == 1) {
-			array_push($outputKey, "whatError");
+			array_push($outputKey, "error_helper");
 			array_push($outputVal, $whatError);
 
-			$error_number = '1';
-			$output = $this->resthelper->getResponseApi($error_number, $lang, $user_app, $sys_date, $outputKey, $outputVal);
-			$this->response($output, 200);
+			$resp_msg_code = '1';
+			$resp_status = 200;
 		} else {
-			array_push($outputKey, "respData");
+			array_push($outputKey, "data");
 			array_push($outputVal, "Hello " . $user_input["name"]);
 
-			$error_number = '0';
-			$output = $this->resthelper->getResponseApi($error_number, $lang, $user_app, $sys_date, $outputKey, $outputVal);
-			$this->response($output, 200);
+			$resp_msg_code = '0';
+			$resp_status = 200;
 		}
+		$output = $this->resthelper->getResponseApi($resp_msg_code, $resp_status, $lang, $user_app, $sys_date, $outputKey, $outputVal);
+		$this->response($output, $resp_status);
 	}
 }
