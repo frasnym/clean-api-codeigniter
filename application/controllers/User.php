@@ -26,8 +26,9 @@ class User extends RestController
 		$data = $this->security->xss_clean($_POST);
 
 		# Variable Declaration
-		$lang = $this->frasfunc->default_language();
-		$this->frasfunc->default_timezone();
+		$FrasFunc = new FRASFUNC();
+		$lang = $FrasFunc->default_language();
+		$FrasFunc->default_timezone();
 		$sys_date = date("Y-m-d H:i:s");
 		$user_app = "Unknown";
 		$whatError = array();
@@ -63,8 +64,9 @@ class User extends RestController
 		$data = $this->security->xss_clean($_POST);
 
 		# Variable Declaration
-		$lang = $this->frasfunc->default_language();
-		$this->frasfunc->default_timezone();
+		$FrasFunc = new FRASFUNC();
+		$lang = $FrasFunc->default_language();
+		$FrasFunc->default_timezone();
 		$sys_date = date("Y-m-d H:i:s");
 		$user_app = "Unknown";
 		$whatError = array();
@@ -118,8 +120,9 @@ class User extends RestController
 		$data = $this->security->xss_clean($_POST);
 
 		# Variable Declaration
-		$lang = $this->frasfunc->default_language();
-		$this->frasfunc->default_timezone();
+		$FrasFunc = new FRASFUNC();
+		$lang = $FrasFunc->default_language();
+		$FrasFunc->default_timezone();
 		$sys_date = date("Y-m-d H:i:s");
 		$user_app = "Unknown";
 		$whatError = array();
